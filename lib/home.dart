@@ -39,56 +39,77 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.greenAccent,
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Container(
-          width: 100,
-          child: Text("WhatsApp"),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(122),
+        child: AppBar(
+          backgroundColor: Color.fromARGB(255, 35, 45, 54),
+          title: Container(
+            width: 100,
+            child: Text("WhatsApp",
+                style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal)),
+          ),
+          actions: [
+            Container(width: 71, height: 24, child: Icon(Icons.search)),
+            Container(width: 39, height: 24, child: Icon(Icons.menu)),
+          ],
+          flexibleSpace: FlexibleSpaceBar(centerTitle: true),
+          bottom: TabBar(
+              indicatorColor: Colors.green,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 5),
+              labelColor: Colors.grey,
+              isScrollable: false,
+              controller: controller,
+              labelPadding: EdgeInsets.symmetric(horizontal: 20),
+              onTap: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                  controller.animateTo(index);
+                });
+              },
+              tabs: [
+                Container(
+                  margin: EdgeInsets.all(0),
+                  width: 50,
+                  height: 51,
+                  child: Center(
+                      child: Icon(Icons.camera_alt_rounded,
+                          color: Color.fromARGB(255, 159, 163, 166))),
+                ),
+                Container(
+                  height: 51,
+                  child: Center(
+                    child: Text(
+                      "CHATS",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 159, 163, 166)),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 51,
+                  child: Center(
+                    child: Text(
+                      "STATUS",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 159, 163, 166)),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 51,
+                  child: Center(
+                    child: Text(
+                      "CALLS",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 159, 163, 166)),
+                    ),
+                  ),
+                ),
+              ]),
         ),
-        actions: [Icon(Icons.settings), Icon(Icons.search)],
-        flexibleSpace: FlexibleSpaceBar(centerTitle: true),
-        bottom: TabBar(
-            indicatorColor: Colors.amber,
-            indicatorPadding: EdgeInsets.symmetric(horizontal: 5),
-            labelColor: Colors.grey,
-            isScrollable: true,
-            controller: controller,
-            labelPadding: EdgeInsets.symmetric(horizontal: 20),
-            onTap: (int index) {
-              setState(() {
-                selectedIndex = index;
-                controller.animateTo(index);
-              });
-            },
-            tabs: [
-              Container(
-                margin: EdgeInsets.all(0),
-                // width: 30,
-                height: 30,
-                child: Icon(Icons.camera, color: Colors.white),
-              ),
-              Container(
-                height: 30,
-                child: Text(
-                  "CHATS",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ),
-              Container(
-                height: 30,
-                child: Text(
-                  "STATUS",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ),
-              Container(
-                height: 30,
-                child: Text(
-                  "CALLS",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ),
-            ]),
       ),
       body: Container(
         color: Colors.transparent,
