@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:remake_whatsapp/widget/chat_bubble_left.dart';
+import 'package:remake_whatsapp/widget/chat_bubble_right.dart';
 
 import 'chat.dart';
 
 class ChatExplained extends StatelessWidget {
-  const ChatExplained({Key? key}) : super(key: key);
+  final String bubbleChatRight = "Tes tes dicoba";
+  final TextEditingController messageController = TextEditingController();
 
-  final String bubbleChatRight = ".";
+  // void IconMic() {
+  //   (messageController.text.isEmpty)
+  //       ? Icon(Icons.mic, color: Colors.white)
+  //       : Icon(Icons.mail, color: Colors.white);
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,42 +39,24 @@ class ChatExplained extends StatelessWidget {
                       children: [
                         SizedBox(height: 80),
                         // Single Right Ballon
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              constraints: BoxConstraints(
-                                minWidth: 60,
-                                maxWidth:
-                                    MediaQuery.of(context).size.width - 15,
-                              ),
-                              margin: EdgeInsets.symmetric(horizontal: 7.5),
-                              decoration: BoxDecoration(
-                                color: Colors.green[900],
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(40),
-                                  bottomLeft: Radius.circular(40),
-                                  bottomRight: Radius.circular(40),
-                                ),
-                              ),
-                              height: 50,
-                              width: bubbleChatRight.length * 10,
-                              child: Center(
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                    minWidth: 30,
-                                    maxWidth: 200,
-                                  ),
-                                  color: Colors.transparent,
-                                  child: Text(
-                                    bubbleChatRight,
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        BubbleChatRight(bubbleChatRight: "Tes Tes"),
+                        BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
+                        BubbleChatRight(bubbleChatRight: "Masih idup?"),
+                        BubbleChatLeft(bubbleChatLeft: "gatau"),
+                        BubbleChatRight(bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
+                        BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
+                        BubbleChatRight(bubbleChatRight: "Tes Tes"),
+                        BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
+                        BubbleChatRight(bubbleChatRight: "Masih idup?"),
+                        BubbleChatLeft(bubbleChatLeft: "gatau"),
+                        BubbleChatRight(bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
+                        BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
+                        BubbleChatRight(bubbleChatRight: "Tes Tes"),
+                        BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
+                        BubbleChatRight(bubbleChatRight: "Masih idup?"),
+                        BubbleChatLeft(bubbleChatLeft: "gatau"),
+                        BubbleChatRight(bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
+                        BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
                       ],
                     ),
                   ),
@@ -174,6 +164,7 @@ class ChatExplained extends StatelessWidget {
                             Container(
                               width: 190,
                               child: TextField(
+                                controller: messageController,
                                 decoration: InputDecoration(
                                   filled: true,
                                   hintText: "Type a message",
@@ -213,7 +204,9 @@ class ChatExplained extends StatelessWidget {
                             height: 50,
                             width: 50,
                             color: Color.fromARGB(255, 0, 176, 156),
-                            child: Icon(Icons.mic, color: Colors.white),
+                            child: (messageController.text.isEmpty)
+                                ? Icon(Icons.mic, color: Colors.white)
+                                : Icon(Icons.send, color: Colors.white),
                           ),
                         ),
                       ),
@@ -228,3 +221,54 @@ class ChatExplained extends StatelessWidget {
     );
   }
 }
+
+// class BubbleChatRight extends StatelessWidget {
+//   const BubbleChatRight({
+//     Key? key,
+//     required this.bubbleChatRight,
+//   }) : super(key: key);
+
+//   final String bubbleChatRight;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: EdgeInsets.symmetric(vertical: 5),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.end,
+//         children: [
+//           Container(
+//             constraints: BoxConstraints(
+//               minWidth: 60,
+//               maxWidth: MediaQuery.of(context).size.width - 15,
+//             ),
+//             margin: EdgeInsets.symmetric(horizontal: 5),
+//             decoration: BoxDecoration(
+//               color: Colors.green[900],
+//               borderRadius: BorderRadius.only(
+//                 topLeft: Radius.circular(40),
+//                 bottomLeft: Radius.circular(40),
+//                 bottomRight: Radius.circular(40),
+//               ),
+//             ),
+//             height: 50,
+//             width: bubbleChatRight.length * 8.3 + 5,
+//             child: Center(
+//               child: Container(
+//                 constraints: BoxConstraints(
+//                   minWidth: 30,
+//                   maxWidth: 200,
+//                 ),
+//                 color: Colors.transparent,
+//                 child: Text(
+//                   bubbleChatRight,
+//                   style: TextStyle(color: Colors.white),
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
