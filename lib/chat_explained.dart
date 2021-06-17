@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'chat.dart';
 
-class ChatExplained extends StatefulWidget {
+class ChatExplained extends StatelessWidget {
   const ChatExplained({Key? key}) : super(key: key);
 
-  @override
-  _ChatExplainedState createState() => _ChatExplainedState();
-}
-
-class _ChatExplainedState extends State<ChatExplained> {
+  final String bubbleChatRight = ".";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,43 +15,60 @@ class _ChatExplainedState extends State<ChatExplained> {
         child: Container(
           child: Stack(
             children: [
+              // BACKGROUND CHAT
+              SvgPicture.asset(
+                "assets/svg/bg.svg",
+                fit: BoxFit.fitHeight,
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+              ),
+              // CHAT BUBBLES
               ListView(
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                          color: Colors.black26,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.white70,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.black26,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.white70,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.black26,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.white70,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.black26,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                      Container(
-                          color: Colors.white70,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width),
-                    ],
+                  SafeArea(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(height: 80),
+                        // Single Right Ballon
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              constraints: BoxConstraints(
+                                minWidth: 60,
+                                maxWidth:
+                                    MediaQuery.of(context).size.width - 15,
+                              ),
+                              margin: EdgeInsets.symmetric(horizontal: 7.5),
+                              decoration: BoxDecoration(
+                                color: Colors.green[900],
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(40),
+                                  bottomLeft: Radius.circular(40),
+                                  bottomRight: Radius.circular(40),
+                                ),
+                              ),
+                              height: 50,
+                              width: bubbleChatRight.length * 10,
+                              child: Center(
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                    minWidth: 30,
+                                    maxWidth: 200,
+                                  ),
+                                  color: Colors.transparent,
+                                  child: Text(
+                                    bubbleChatRight,
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

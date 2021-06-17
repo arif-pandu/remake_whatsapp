@@ -172,7 +172,7 @@ class BuildChatContact extends StatelessWidget {
           Container(
             height: 1,
             width: MediaQuery.of(context).size.width,
-            color: Color.fromARGB(200, 20, 40, 50),
+            color: Color.fromARGB(150, 20, 40, 50),
           ),
         ],
       ),
