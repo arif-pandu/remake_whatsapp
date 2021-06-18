@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bubble/bubble.dart';
 
 class BubbleChatRight extends StatelessWidget {
   const BubbleChatRight({
@@ -11,41 +12,20 @@ class BubbleChatRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            constraints: BoxConstraints(
-              minWidth: 60,
-              maxWidth: MediaQuery.of(context).size.width - 15,
-            ),
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            decoration: BoxDecoration(
-              color: Colors.green[900],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                bottomLeft: Radius.circular(40),
-                bottomRight: Radius.circular(40),
-              ),
-            ),
-            height: 50,
-            width: bubbleChatRight.length * 8.3 + 5,
-            child: Center(
-              child: Container(
-                constraints: BoxConstraints(
-                  minWidth: 30,
-                  maxWidth: 200,
-                ),
-                color: Colors.transparent,
-                child: Text(
-                  bubbleChatRight,
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
+      child: Bubble(
+        margin: BubbleEdges.only(top: 5, right: 7.5, bottom: 5),
+        padding: BubbleEdges.symmetric(vertical: 10),
+        child: Text(
+          bubbleChatRight,
+          style: TextStyle(
+            color: Colors.grey[300],
+            fontSize: 17,
+            fontWeight: FontWeight.w400,
           ),
-        ],
+        ),
+        color: Color.fromARGB(255, 35, 45, 54),
+        alignment: Alignment.topRight,
+        nip: BubbleNip.rightTop,
       ),
     );
   }
