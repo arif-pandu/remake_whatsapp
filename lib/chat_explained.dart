@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remake_whatsapp/widget/chat_bubble_left.dart';
 import 'package:remake_whatsapp/widget/chat_bubble_right.dart';
+import 'package:remake_whatsapp/theme/theme.dart';
 import 'chat.dart';
 
 class ChatExplained extends StatelessWidget {
@@ -24,7 +25,7 @@ class ChatExplained extends StatelessWidget {
         Align(
           alignment: Alignment(0, -1),
           child: Container(
-            color: Colors.grey[800],
+            color: safeareaColor,
             height: 50,
             width: MediaQuery.of(context).size.width,
           ),
@@ -77,7 +78,7 @@ class ChatExplained extends StatelessWidget {
                     children: [
                       //TOP BAR
                       Container(
-                        color: Color.fromARGB(255, 35, 45, 54),
+                        color: topTitleBar,
                         height: 65,
                         width: MediaQuery.of(context).size.width,
                         child: Row(
@@ -99,6 +100,7 @@ class ChatExplained extends StatelessWidget {
                                     Icon(Icons.arrow_back, color: Colors.white),
                               ),
                             ),
+                            // PHOTO PROFILE
                             Container(
                               margin: EdgeInsets.only(left: 4),
                               child: ClipRRect(
@@ -142,10 +144,18 @@ class ChatExplained extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Icon(Icons.video_call_rounded,
-                                        color: Colors.white),
-                                    Icon(Icons.phone, color: Colors.white),
-                                    Icon(Icons.menu, color: Colors.white),
+                                    Icon(
+                                      Icons.video_call_rounded,
+                                      color: Colors.white,
+                                    ),
+                                    Icon(
+                                      Icons.phone,
+                                      color: Colors.white,
+                                    ),
+                                    Icon(
+                                      Icons.more_vert,
+                                      color: Colors.white,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -160,7 +170,7 @@ class ChatExplained extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 35, 45, 54),
+                              color: inputBarColor,
                               borderRadius: BorderRadius.circular(25),
                             ),
                             margin: EdgeInsets.only(bottom: 3),
@@ -171,7 +181,7 @@ class ChatExplained extends StatelessWidget {
                                 Container(
                                   margin: EdgeInsets.only(left: 10),
                                   child: Icon(Icons.emoji_emotions,
-                                      color: Colors.grey),
+                                      color: textInputColor),
                                 ),
                                 Container(
                                   width: 190,
@@ -183,7 +193,7 @@ class ChatExplained extends StatelessWidget {
                                       border: InputBorder.none,
                                       hintStyle: TextStyle(
                                         fontSize: 18,
-                                        color: Colors.grey,
+                                        color: textInputColor,
                                         fontWeight: FontWeight.w400,
                                       ),
                                       fillColor: Colors.transparent,
@@ -197,11 +207,11 @@ class ChatExplained extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Icon(Icons.attach_file_outlined,
-                                            color: Colors.grey),
+                                        Icon(Icons.attach_file,
+                                            color: textInputColor),
                                         Icon(
-                                          Icons.camera_alt,
-                                          color: Colors.grey,
+                                          Icons.camera_alt_rounded,
+                                          color: textInputColor,
                                         ),
                                       ],
                                     ),
@@ -216,7 +226,7 @@ class ChatExplained extends StatelessWidget {
                               child: Container(
                                 height: 50,
                                 width: 50,
-                                color: Color.fromARGB(255, 0, 176, 156),
+                                color: floatingButtonColor,
                                 child: (messageController.text.isEmpty)
                                     ? Icon(Icons.mic, color: Colors.white)
                                     : Icon(Icons.send, color: Colors.white),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
+import 'package:remake_whatsapp/theme/theme.dart';
 
 class BubbleChatRight extends StatelessWidget {
   const BubbleChatRight({
@@ -18,12 +19,12 @@ class BubbleChatRight extends StatelessWidget {
         child: Text(
           bubbleChatRight,
           style: TextStyle(
-            color: Colors.grey[300],
+            color: textBubbleColor,
             fontSize: 17,
             fontWeight: FontWeight.w400,
           ),
         ),
-        color: Color.fromARGB(255, 35, 45, 54),
+        color: rightBubbleChatColor,
         alignment: Alignment.topRight,
         nip: BubbleNip.rightTop,
       ),

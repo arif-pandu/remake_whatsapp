@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'theme/theme.dart';
 import 'camera.dart';
 import 'call.dart';
 import 'status.dart';
@@ -38,25 +38,32 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(122),
         child: AppBar(
-          backgroundColor: Color.fromARGB(255, 35, 45, 54),
+          backgroundColor: topTitleBar,
           title: Container(
             width: 100,
             child: Text("WhatsApp",
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal)),
           ),
           actions: [
-            Container(width: 71, height: 24, child: Icon(Icons.search)),
-            Container(width: 39, height: 24, child: Icon(Icons.menu)),
+            Container(
+              width: 71,
+              height: 24,
+              child: Icon(Icons.search, color: topTitleIcon),
+            ),
+            Container(
+              width: 39,
+              height: 24,
+              child: Icon(Icons.more_vert, color: topTitleIcon),
+            ),
           ],
           flexibleSpace: FlexibleSpaceBar(centerTitle: true),
           bottom: TabBar(
-              indicatorColor: Colors.green,
+              indicatorColor: indicatorColor,
               indicatorPadding: EdgeInsets.symmetric(horizontal: 5),
-              labelColor: Colors.grey,
+              labelColor: topTitleIcon,
               isScrollable: false,
               controller: controller,
               labelPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -72,17 +79,15 @@ class _HomePageState extends State<HomePage>
                   width: 50,
                   height: 51,
                   child: Center(
-                      child: Icon(Icons.camera_alt_rounded,
-                          color: Color.fromARGB(255, 159, 163, 166))),
+                      child:
+                          Icon(Icons.camera_alt_rounded, color: topTitleIcon)),
                 ),
                 Container(
                   height: 51,
                   child: Center(
                     child: Text(
                       "CHATS",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 159, 163, 166)),
+                      style: TextStyle(fontSize: 15, color: topTitleIcon),
                     ),
                   ),
                 ),
@@ -91,9 +96,7 @@ class _HomePageState extends State<HomePage>
                   child: Center(
                     child: Text(
                       "STATUS",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 159, 163, 166)),
+                      style: TextStyle(fontSize: 15, color: topTitleIcon),
                     ),
                   ),
                 ),
@@ -102,9 +105,7 @@ class _HomePageState extends State<HomePage>
                   child: Center(
                     child: Text(
                       "CALLS",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 159, 163, 166)),
+                      style: TextStyle(fontSize: 15, color: topTitleIcon),
                     ),
                   ),
                 ),
@@ -112,7 +113,7 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       body: Container(
-        color: Colors.transparent,
+        color: backgroundWA,
         child: TabBarView(
           controller: controller,
           children: [

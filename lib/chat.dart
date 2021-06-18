@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remake_whatsapp/chat_explained.dart';
+import 'package:remake_whatsapp/theme/theme.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class _ChatPageState extends State<ChatPage> {
                 child: Container(
                   height: 65,
                   width: 65,
-                  color: Color.fromARGB(255, 0, 176, 156),
+                  color: floatingButtonColor,
                   child: Icon(
                     Icons.message,
                     color: Colors.white,
@@ -129,7 +130,7 @@ class BuildChatContact extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
-                                    color: Color.fromARGB(255, 196, 196, 196),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
@@ -140,8 +141,7 @@ class BuildChatContact extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
-                                      color:
-                                          Color.fromARGB(255, 196, 196, 196)),
+                                      color: messageThumbColor),
                                 ),
                               ),
                             ],
@@ -157,7 +157,7 @@ class BuildChatContact extends StatelessWidget {
                               lastSeen,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Color.fromARGB(255, 196, 196, 196),
+                                color: dateAndTimeColor,
                               ),
                             ),
                           ),
