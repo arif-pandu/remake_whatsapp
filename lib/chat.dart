@@ -100,8 +100,8 @@ class BuildChatContact extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Container(
-                      height: 64,
-                      width: 64,
+                      height: 60,
+                      width: 60,
                       color: Color.fromARGB(255, 196, 196, 196),
                     ),
                   ),
@@ -139,7 +139,7 @@ class BuildChatContact extends StatelessWidget {
                                 child: Text(
                                   message,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.w400,
                                       color: messageThumbColor),
                                 ),

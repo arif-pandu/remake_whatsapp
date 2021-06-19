@@ -40,6 +40,7 @@ class ChatExplained extends StatelessWidget {
                   ListView(
                     children: [
                       SafeArea(
+                        minimum: const EdgeInsets.only(bottom: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -100,6 +101,7 @@ class ChatExplained extends StatelessWidget {
                                     Icon(Icons.arrow_back, color: Colors.white),
                               ),
                             ),
+                            SizedBox(width: 5),
                             // PHOTO PROFILE
                             Container(
                               margin: EdgeInsets.only(left: 4),
@@ -123,7 +125,7 @@ class ChatExplained extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                   Text(
@@ -187,6 +189,8 @@ class ChatExplained extends StatelessWidget {
                                   width: 190,
                                   child: TextField(
                                     controller: messageController,
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
                                     decoration: InputDecoration(
                                       filled: true,
                                       hintText: "Type a message",

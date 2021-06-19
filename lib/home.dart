@@ -62,9 +62,9 @@ class _HomePageState extends State<HomePage>
           flexibleSpace: FlexibleSpaceBar(centerTitle: true),
           bottom: TabBar(
               indicatorColor: indicatorColor,
-              indicatorPadding: EdgeInsets.symmetric(horizontal: 5),
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 2.5),
               labelColor: topTitleIcon,
-              isScrollable: false,
+              isScrollable: true,
               controller: controller,
               labelPadding: EdgeInsets.symmetric(horizontal: 20),
               onTap: (int index) {
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage>
               tabs: [
                 Container(
                   margin: EdgeInsets.all(0),
-                  width: 50,
+                  width: 40,
                   height: 51,
                   child: Center(
                       child:
@@ -87,7 +87,10 @@ class _HomePageState extends State<HomePage>
                   child: Center(
                     child: Text(
                       "CHATS",
-                      style: TextStyle(fontSize: 15, color: topTitleIcon),
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: topTitleIcon,
+                          fontWeight: FontWeight.w800),
                     ),
                   ),
                 ),
@@ -96,7 +99,11 @@ class _HomePageState extends State<HomePage>
                   child: Center(
                     child: Text(
                       "STATUS",
-                      style: TextStyle(fontSize: 15, color: topTitleIcon),
+                      maxLines: 1,
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: topTitleIcon,
+                          fontWeight: FontWeight.w800),
                     ),
                   ),
                 ),
@@ -105,7 +112,10 @@ class _HomePageState extends State<HomePage>
                   child: Center(
                     child: Text(
                       "CALLS",
-                      style: TextStyle(fontSize: 15, color: topTitleIcon),
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: topTitleIcon,
+                          fontWeight: FontWeight.w800),
                     ),
                   ),
                 ),

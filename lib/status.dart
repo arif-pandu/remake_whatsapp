@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class StatusPage extends StatefulWidget {
   const StatusPage({Key? key}) : super(key: key);
@@ -78,13 +79,21 @@ class BuildChatContact extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 15, bottom: 13, top: 13, right: 15),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(50),
-              child: Container(
-                height: 64,
-                width: 64,
-                color: Color.fromARGB(255, 196, 196, 196),
+            margin: EdgeInsets.only(left: 15, bottom: 8, top: 8, right: 15),
+            child: DottedBorder(
+              borderType: BorderType.RRect,
+              radius: Radius.circular(50),
+              padding: EdgeInsets.all(4),
+              color: Colors.white,
+              strokeWidth: 1.5,
+              dashPattern: [30, 5, 30, 5, 30, 5, 30, 5],
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  color: Color.fromARGB(255, 196, 196, 196),
+                ),
               ),
             ),
           ),
