@@ -6,22 +6,27 @@ class BubbleChatRight extends StatelessWidget {
   const BubbleChatRight({
     Key? key,
     required this.bubbleChatRight,
+    required this.nextChat,
   }) : super(key: key);
 
   final String bubbleChatRight;
+  final bool nextChat;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Bubble(
-        margin: BubbleEdges.only(top: 5, right: 7.5, bottom: 5),
-        padding: BubbleEdges.symmetric(vertical: 10),
+        stick: false,
+        showNip: nextChat,
+        margin: BubbleEdges.only(top: 5, right: 7.5),
+        // padding: BubbleEdges.symmetric(vertical: 6),
         child: Text(
           bubbleChatRight,
           style: TextStyle(
-            color: textBubbleColor,
+            color: Colors.white,
             fontSize: 17,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.normal,
+            fontFamily: "Helvetica",
           ),
         ),
         color: rightBubbleChatColor,

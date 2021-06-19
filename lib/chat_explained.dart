@@ -1,3 +1,4 @@
+import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:remake_whatsapp/widget/chat_bubble_left.dart';
 import 'package:remake_whatsapp/widget/chat_bubble_right.dart';
@@ -46,29 +47,46 @@ class ChatExplained extends StatelessWidget {
                           children: [
                             SizedBox(height: 80),
                             // Single Right Ballon
+                            Bubble(
+                              color: leftBubbleChatColor,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Today",
+                                style: TextStyle(color: textBubbleColor),
+                              ),
+                            ),
+                            BubbleChatRight(
+                                bubbleChatRight: "Kabar, baik?",
+                                nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "Hmmmm ya", nextChat: true),
+                            BubbleChatRight(
+                                bubbleChatRight: "Masih idup?", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "gatau", nextChat: true),
+                            BubbleChatRight(
+                                bubbleChatRight: "wkwkwkwkwkwkwkwkwk",
+                                nextChat: false),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "galucu", nextChat: true),
                             BubbleChatRight(
                                 bubbleChatRight:
-                                    messageController.text.toString()),
-                            BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
-                            BubbleChatRight(bubbleChatRight: "Masih idup?"),
-                            BubbleChatLeft(bubbleChatLeft: "gatau"),
+                                    "Ya Allah, salah opo neh aku ki",
+                                nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "ya", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "banyak", nextChat: false),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "gatau", nextChat: false),
                             BubbleChatRight(
-                                bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
-                            BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
-                            BubbleChatRight(bubbleChatRight: "Tes Tes"),
-                            BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
-                            BubbleChatRight(bubbleChatRight: "Masih idup?"),
-                            BubbleChatLeft(bubbleChatLeft: "gatau"),
+                                bubbleChatRight: "Lha kok", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "au ah, gelap", nextChat: true),
                             BubbleChatRight(
-                                bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
-                            BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
-                            BubbleChatRight(bubbleChatRight: "Tes Tes"),
-                            BubbleChatLeft(bubbleChatLeft: "Hmmmm ya"),
-                            BubbleChatRight(bubbleChatRight: "Masih idup?"),
-                            BubbleChatLeft(bubbleChatLeft: "gatau"),
-                            BubbleChatRight(
-                                bubbleChatRight: "wkwkwkwkwkwkwkwkwk"),
-                            BubbleChatLeft(bubbleChatLeft: "XIXIXIXIXIXIX"),
+                                bubbleChatRight:
+                                    messageController.text.toString(),
+                                nextChat: true),
                           ],
                         ),
                       ),
@@ -125,13 +143,13 @@ class ChatExplained extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w700,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                   Text(
                                     "last seen today at 12:00",
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       color: Colors.white,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -198,7 +216,8 @@ class ChatExplained extends StatelessWidget {
                                       hintStyle: TextStyle(
                                         fontSize: 18,
                                         color: textInputColor,
-                                        fontWeight: FontWeight.w400,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: "Roboto",
                                       ),
                                       fillColor: Colors.transparent,
                                     ),

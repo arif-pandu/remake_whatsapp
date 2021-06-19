@@ -44,8 +44,14 @@ class _HomePageState extends State<HomePage>
           backgroundColor: topTitleBar,
           title: Container(
             width: 100,
-            child: Text("WhatsApp",
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal)),
+            child: Text(
+              "WhatsApp",
+              style: TextStyle(
+                  color: topTitleIcon,
+                  fontSize: 23,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: "Roboto"),
+            ),
           ),
           actions: [
             Container(
@@ -88,9 +94,10 @@ class _HomePageState extends State<HomePage>
                     child: Text(
                       "CHATS",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: topTitleIcon,
-                          fontWeight: FontWeight.w800),
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "Roboto"),
                     ),
                   ),
                 ),
@@ -101,9 +108,10 @@ class _HomePageState extends State<HomePage>
                       "STATUS",
                       maxLines: 1,
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: topTitleIcon,
-                          fontWeight: FontWeight.w800),
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "Roboto"),
                     ),
                   ),
                 ),
@@ -113,9 +121,10 @@ class _HomePageState extends State<HomePage>
                     child: Text(
                       "CALLS",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18,
                           color: topTitleIcon,
-                          fontWeight: FontWeight.w800),
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "Roboto"),
                     ),
                   ),
                 ),

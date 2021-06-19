@@ -58,9 +58,13 @@ flutter:
   fonts:
     - family: Helvetica
       fonts:
+        - asset: assets/font/Helvetica-Light.ttf
+          weight: 300
         - asset: assets/font/Helvetica.ttf
+          weight: 500
         - asset: assets/font/Helvetica-Bold.ttf
-        - asset: assets/font/helvetica-light-587ebe5a59211.ttf
+          weight: 700
+        
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

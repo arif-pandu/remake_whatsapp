@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:remake_whatsapp/theme/theme.dart';
 
 class StatusPage extends StatefulWidget {
   const StatusPage({Key? key}) : super(key: key);
@@ -19,17 +20,93 @@ class _StatusPageState extends State<StatusPage> {
             children: [
               Column(
                 children: [
-                  //CHAT LIST START
-                  BuildChatContact(user: "User 1", createdAt: "10:00"),
-                  BuildChatContact(user: "User 2", createdAt: "12:00"),
-                  BuildChatContact(user: "User 3", createdAt: "12:34"),
-                  BuildChatContact(user: "User 4", createdAt: "12:00"),
-                  BuildChatContact(user: "User 5", createdAt: "12:00"),
-                  BuildChatContact(user: "User 6", createdAt: "12:00"),
-                  BuildChatContact(user: "User 7", createdAt: "12:00"),
-                  BuildChatContact(user: "User 8", createdAt: "12:00"),
-                  BuildChatContact(user: "User 9", createdAt: "12:00"),
-                  BuildChatContact(user: "User 10", createdAt: "12:00"),
+                  //MY STATUS
+                  Container(
+                    //CONTACT CHAT
+                    color: Colors.transparent,
+                    height: 90,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 15, bottom: 8, top: 8, right: 15),
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: Radius.circular(50),
+                            padding: EdgeInsets.all(4),
+                            color: Colors.white,
+                            strokeWidth: 1.5,
+                            dashPattern: [60, 5, 60, 5],
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Container(
+                                height: 57,
+                                width: 57,
+                                color: Color.fromARGB(255, 196, 196, 196),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "My Status",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.fromARGB(255, 196, 196, 196),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 8),
+                                child: Text(
+                                  "today 10.00",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color:
+                                          Color.fromARGB(255, 196, 196, 196)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          margin: EdgeInsets.only(right: 5),
+                          child: Icon(Icons.more_vert, color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  //MARGIN BAR FOR STATUS
+                  Container(
+                    height: 2,
+                    color: backgroundWA.withGreen(35),
+                    margin: EdgeInsets.only(bottom: 5),
+                  ),
+                  //STATUS LIST START
+                  BuildStatusContact(user: "Mapandu", createdAt: "today 10:00"),
+                  BuildStatusContact(
+                      user: "Dulsimad", createdAt: "yesterday 10:00"),
+                  BuildStatusContact(
+                      user: "Zsuska", createdAt: "tomorrow 10:00"),
+                  BuildStatusContact(
+                      user: "Anonim", createdAt: "last week 10:00"),
+                  BuildStatusContact(user: "She :)", createdAt: "today 10:00"),
+                  BuildStatusContact(
+                      user: "User 1", createdAt: " tonight 10:00"),
+                  BuildStatusContact(user: "User 1", createdAt: "today 10:00"),
+                  BuildStatusContact(user: "User 2", createdAt: "today 10:00"),
+                  BuildStatusContact(user: "User 3", createdAt: "today 10:00"),
+                  BuildStatusContact(user: "User 14", createdAt: "today 10:00"),
+                  BuildStatusContact(user: "User 5", createdAt: "today 10:00"),
                 ],
               ),
             ],
@@ -59,8 +136,8 @@ class _StatusPageState extends State<StatusPage> {
   }
 }
 
-class BuildChatContact extends StatelessWidget {
-  const BuildChatContact({
+class BuildStatusContact extends StatelessWidget {
+  const BuildStatusContact({
     Key? key,
     required this.user,
     required this.createdAt,
@@ -79,19 +156,19 @@ class BuildChatContact extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 15, bottom: 8, top: 8, right: 15),
+            margin: EdgeInsets.only(left: 15, bottom: 8, top: 8, right: 17.5),
             child: DottedBorder(
               borderType: BorderType.RRect,
               radius: Radius.circular(50),
               padding: EdgeInsets.all(4),
-              color: Colors.white,
+              color: indicatorColor,
               strokeWidth: 1.5,
               dashPattern: [30, 5, 30, 5, 30, 5, 30, 5],
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Container(
-                  height: 60,
-                  width: 60,
+                  height: 57,
+                  width: 57,
                   color: Color.fromARGB(255, 196, 196, 196),
                 ),
               ),
@@ -107,7 +184,7 @@ class BuildChatContact extends StatelessWidget {
                     user,
                     style: TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       color: Color.fromARGB(255, 196, 196, 196),
                     ),
                   ),

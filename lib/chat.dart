@@ -128,20 +128,22 @@ class BuildChatContact extends StatelessWidget {
                                 child: Text(
                                   user,
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 19,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
+                                    fontFamily: "Helvetica",
                                   ),
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 8),
+                                margin: EdgeInsets.only(top: 2),
                                 child: Text(
                                   message,
                                   style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      color: messageThumbColor),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: messageThumbColor,
+                                      fontFamily: "Helvetica"),
                                 ),
                               ),
                             ],

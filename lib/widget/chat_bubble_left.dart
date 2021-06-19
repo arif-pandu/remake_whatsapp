@@ -6,19 +6,23 @@ class BubbleChatLeft extends StatelessWidget {
   const BubbleChatLeft({
     Key? key,
     required this.bubbleChatLeft,
+    required this.nextChat,
   }) : super(key: key);
 
   final String bubbleChatLeft;
+  final bool nextChat;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Bubble(
-          margin: BubbleEdges.only(top: 7.5, left: 7.5),
+          stick: false,
+          showNip: nextChat,
+          margin: BubbleEdges.only(top: 5, left: 7.5),
           child: Text(
             bubbleChatLeft,
             style: TextStyle(
-              color: textBubbleColor,
+              color: Colors.white,
               fontSize: 17,
               fontWeight: FontWeight.w400,
             ),

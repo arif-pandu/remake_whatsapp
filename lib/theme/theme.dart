@@ -11,5 +11,6 @@ const safeareaColor = Color(0xFF0F1E25);
 const topTitleBar = Color(0xFF232D36);
 const messageThumbColor = Color(0xFFCFDEDB);
 const indicatorColor = Color(0xFF00B09C);
+const indicatorRedColor = Color(0xFFB71C1C);
 const topTitleIcon = Color.fromARGB(255, 159, 163, 166);
 const backgroundWA = Color(0xFF0F1E25);
