@@ -5,9 +5,21 @@ import 'package:remake_whatsapp/widget/chat_bubble_right.dart';
 import 'package:remake_whatsapp/theme/theme.dart';
 import 'chat.dart';
 
-class ChatExplained extends StatelessWidget {
-  final String bubbleChatRight = "Tes tes dicoba";
+class ChatExplained extends StatefulWidget {
+  @override
+  _ChatExplainedState createState() => _ChatExplainedState();
+}
+
+class _ChatExplainedState extends State<ChatExplained> {
+  final String bubbleChatRight = "";
   final TextEditingController messageController = TextEditingController();
+  String userInput = "";
+
+  void clearTextInput() {
+    setState(() {
+      userInput = messageController.text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +96,9 @@ class ChatExplained extends StatelessWidget {
                             BubbleChatLeft(
                                 bubbleChatLeft: "au ah, gelap", nextChat: true),
                             BubbleChatRight(
-                                bubbleChatRight:
-                                    messageController.text.toString(),
+                                bubbleChatRight: userInput, nextChat: true),
+                            BubbleChatRight(
+                                bubbleChatRight: "messageRight",
                                 nextChat: true),
                           ],
                         ),
@@ -143,7 +156,8 @@ class ChatExplained extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "Roboto",
                                     ),
                                   ),
                                   Text(
@@ -151,7 +165,8 @@ class ChatExplained extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.normal,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "Roboto",
                                     ),
                                   ),
                                 ],
@@ -208,7 +223,7 @@ class ChatExplained extends StatelessWidget {
                                   child: TextField(
                                     controller: messageController,
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
+                                        color: Colors.white, fontSize: 18),
                                     decoration: InputDecoration(
                                       filled: true,
                                       hintText: "Type a message",
@@ -244,15 +259,18 @@ class ChatExplained extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Container(
-                                height: 50,
-                                width: 50,
-                                color: floatingButtonColor,
-                                child: (messageController.text.isEmpty)
-                                    ? Icon(Icons.mic, color: Colors.white)
-                                    : Icon(Icons.send, color: Colors.white),
+                            child: GestureDetector(
+                              onTap: clearTextInput,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: floatingButtonColor,
+                                  child: (messageController.text.isEmpty)
+                                      ? Icon(Icons.mic, color: Colors.white)
+                                      : Icon(Icons.send, color: Colors.white),
+                                ),
                               ),
                             ),
                           ),
@@ -269,54 +287,3 @@ class ChatExplained extends StatelessWidget {
     );
   }
 }
-
-// class BubbleChatRight extends StatelessWidget {
-//   const BubbleChatRight({
-//     Key? key,
-//     required this.bubbleChatRight,
-//   }) : super(key: key);
-
-//   final String bubbleChatRight;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: EdgeInsets.symmetric(vertical: 5),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.end,
-//         children: [
-//           Container(
-//             constraints: BoxConstraints(
-//               minWidth: 60,
-//               maxWidth: MediaQuery.of(context).size.width - 15,
-//             ),
-//             margin: EdgeInsets.symmetric(horizontal: 5),
-//             decoration: BoxDecoration(
-//               color: Colors.green[900],
-//               borderRadius: BorderRadius.only(
-//                 topLeft: Radius.circular(40),
-//                 bottomLeft: Radius.circular(40),
-//                 bottomRight: Radius.circular(40),
-//               ),
-//             ),
-//             height: 50,
-//             width: bubbleChatRight.length * 8.3 + 5,
-//             child: Center(
-//               child: Container(
-//                 constraints: BoxConstraints(
-//                   minWidth: 30,
-//                   maxWidth: 200,
-//                 ),
-//                 color: Colors.transparent,
-//                 child: Text(
-//                   bubbleChatRight,
-//                   style: TextStyle(color: Colors.white),
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

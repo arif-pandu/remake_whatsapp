@@ -66,69 +66,75 @@ class _HomePageState extends State<HomePage>
             ),
           ],
           flexibleSpace: FlexibleSpaceBar(centerTitle: true),
-          bottom: TabBar(
-              indicatorColor: indicatorColor,
-              indicatorPadding: EdgeInsets.symmetric(horizontal: 2.5),
-              labelColor: topTitleIcon,
-              isScrollable: true,
-              controller: controller,
-              labelPadding: EdgeInsets.symmetric(horizontal: 20),
-              onTap: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                  controller.animateTo(index);
-                });
-              },
-              tabs: [
-                Container(
-                  margin: EdgeInsets.all(0),
-                  width: 40,
-                  height: 51,
-                  child: Center(
-                      child:
-                          Icon(Icons.camera_alt_rounded, color: topTitleIcon)),
-                ),
-                Container(
-                  height: 51,
-                  child: Center(
-                    child: Text(
-                      "CHATS",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: topTitleIcon,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "Roboto"),
+          bottom: PreferredSize(
+            preferredSize: Size(MediaQuery.of(context).size.width, 51),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: TabBar(
+                  indicatorColor: indicatorColor,
+                  labelColor: indicatorColor,
+                  isScrollable: true,
+                  unselectedLabelColor: topTitleIcon,
+                  controller: controller,
+                  labelPadding: EdgeInsets.symmetric(horizontal: 20),
+                  onTap: (int index) {
+                    setState(() {
+                      selectedIndex = index;
+                      controller.animateTo(index);
+                    });
+                  },
+                  tabs: [
+                    Container(
+                      margin: EdgeInsets.only(right: 20),
+                      width: 0,
+                      height: 45,
+                      child: Icon(
+                        Icons.camera_alt_rounded,
+                        color: topTitleIcon,
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  height: 51,
-                  child: Center(
-                    child: Text(
-                      "STATUS",
-                      maxLines: 1,
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: topTitleIcon,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "Roboto"),
+                    Container(
+                      margin: EdgeInsets.only(right: 5),
+                      height: 45,
+                      child: Center(
+                        child: Text(
+                          "CHATS",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "Roboto"),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  height: 51,
-                  child: Center(
-                    child: Text(
-                      "CALLS",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: topTitleIcon,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "Roboto"),
+                    Container(
+                      margin: EdgeInsets.only(right: 5),
+                      height: 45,
+                      child: Center(
+                        child: Text(
+                          "STATUS",
+                          maxLines: 1,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "Roboto"),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ]),
+                    Container(
+                      height: 45,
+                      child: Center(
+                        child: Text(
+                          "CALLS",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "Roboto"),
+                        ),
+                      ),
+                    ),
+                  ]),
+            ),
+          ),
         ),
       ),
       body: Container(
