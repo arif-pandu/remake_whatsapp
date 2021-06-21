@@ -24,60 +24,70 @@ class _CallPageState extends State<CallPage> {
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_forward,
                     colorIcon: indicatorColor,
+                    urlPhoneThumb: "default.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_back,
                     colorIcon: indicatorRedColor,
+                    urlPhoneThumb: "tumblr.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_forward,
                     colorIcon: indicatorColor,
+                    urlPhoneThumb: "dora.png",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_back,
                     colorIcon: indicatorRedColor,
+                    urlPhoneThumb: "psyduck.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_forward,
                     colorIcon: indicatorColor,
+                    urlPhoneThumb: "togepi.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_back,
                     colorIcon: indicatorRedColor,
+                    urlPhoneThumb: "kimi no nawa 3.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_forward,
                     colorIcon: indicatorColor,
+                    urlPhoneThumb: "default.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_back,
                     colorIcon: indicatorRedColor,
+                    urlPhoneThumb: "tumblr.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_forward,
                     colorIcon: indicatorColor,
+                    urlPhoneThumb: "kimi no nawa 3.jpg",
                   ),
                   BuildCallLog(
                     user: "user",
                     lastCall: "today 12:34 AM",
                     iconCall: Icons.arrow_back,
                     colorIcon: indicatorRedColor,
+                    urlPhoneThumb: "default.jpg",
                   ),
                 ],
               ),
@@ -115,12 +125,14 @@ class BuildCallLog extends StatelessWidget {
     required this.lastCall,
     required this.iconCall,
     required this.colorIcon,
+    required this.urlPhoneThumb,
   }) : super(key: key);
 
   final String user;
   final String lastCall;
   final IconData iconCall;
   final Color colorIcon;
+  final String urlPhoneThumb;
 
   @override
   Widget build(BuildContext context) {
@@ -141,10 +153,13 @@ class BuildCallLog extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Container(
-                      height: 60,
-                      width: 60,
-                      color: Color.fromARGB(255, 196, 196, 196),
-                    ),
+                        height: 60,
+                        width: 60,
+                        color: Color.fromARGB(255, 196, 196, 196),
+                        child: Image(
+                          image: AssetImage("assets/images/" + urlPhoneThumb),
+                          fit: BoxFit.cover,
+                        )),
                   ),
                 ),
                 Expanded(

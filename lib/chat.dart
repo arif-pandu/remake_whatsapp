@@ -22,25 +22,56 @@ class _ChatPageState extends State<ChatPage> {
                 children: [
                   //CHAT LIST START
                   BuildChatContact(
-                      user: "User 1", message: "Hai", lastSeen: "02/10/2020"),
+                    user: "User 1",
+                    message: "Hai",
+                    lastSeen: "02/10/2020",
+                    urlProfile: "default.jpg",
+                  ),
                   BuildChatContact(
-                      user: "User 2", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 2",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "tumblr.jpg"),
                   BuildChatContact(
-                      user: "User 3", message: "Aloha", lastSeen: "02/10/2020"),
+                      user: "User 3",
+                      message: "Aloha",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "kimi no nawa 3.jpg"),
                   BuildChatContact(
-                      user: "User 4", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 4",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "olaf.jpg"),
                   BuildChatContact(
-                      user: "User 5", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 5",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "psyduck.jpg"),
                   BuildChatContact(
-                      user: "User 6", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 6",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "togepi.jpg"),
                   BuildChatContact(
-                      user: "User 7", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 7",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "default.jpg"),
                   BuildChatContact(
-                      user: "User 8", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 8",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "eye.jpg"),
                   BuildChatContact(
-                      user: "User 9", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 9",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "dora.png"),
                   BuildChatContact(
-                      user: "User 10", message: "Halo", lastSeen: "02/10/2020"),
+                      user: "User 10",
+                      message: "Halo",
+                      lastSeen: "02/10/2020",
+                      urlProfile: "togepi.jpg"),
                 ],
               ),
             ],
@@ -76,11 +107,13 @@ class BuildChatContact extends StatelessWidget {
     required this.user,
     required this.message,
     required this.lastSeen,
+    required this.urlProfile,
   }) : super(key: key);
 
   final String user;
   final String message;
   final String lastSeen;
+  final String urlProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +136,10 @@ class BuildChatContact extends StatelessWidget {
                       height: 60,
                       width: 60,
                       color: Color.fromARGB(255, 196, 196, 196),
+                      child: Image(
+                        image: AssetImage("assets/images/" + urlProfile),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

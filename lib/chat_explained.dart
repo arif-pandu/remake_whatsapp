@@ -18,6 +18,7 @@ class _ChatExplainedState extends State<ChatExplained> {
   void clearTextInput() {
     setState(() {
       userInput = messageController.text;
+      messageController.clear();
     });
   }
 
@@ -57,8 +58,12 @@ class _ChatExplainedState extends State<ChatExplained> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            SizedBox(height: 80),
+                            SizedBox(height: 50),
                             // Single Right Ballon
+                            BubbleChatRight(
+                                bubbleChatRight: "ok", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "hmmm ya", nextChat: true),
                             Bubble(
                               color: leftBubbleChatColor,
                               alignment: Alignment.center,
@@ -96,10 +101,19 @@ class _ChatExplainedState extends State<ChatExplained> {
                             BubbleChatLeft(
                                 bubbleChatLeft: "au ah, gelap", nextChat: true),
                             BubbleChatRight(
-                                bubbleChatRight: userInput, nextChat: true),
+                                bubbleChatRight: "Lha kok", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "ya", nextChat: true),
+                            BubbleChatLeft(
+                                bubbleChatLeft: "Hmmmm ya", nextChat: false),
                             BubbleChatRight(
-                                bubbleChatRight: "messageRight",
+                                bubbleChatRight: "Hmmm yaa wae terus",
                                 nextChat: true),
+                            BubbleChatRight(
+                                bubbleChatRight: "Hmmm yaa", nextChat: true),
+                            BubbleChatRight(
+                                bubbleChatRight: userInput, nextChat: false),
+                            SizedBox(height: 40),
                           ],
                         ),
                       ),
@@ -142,6 +156,11 @@ class _ChatExplainedState extends State<ChatExplained> {
                                   height: 41,
                                   width: 41,
                                   color: Colors.white,
+                                  child: Image(
+                                    image:
+                                        AssetImage("assets/images/psyduck.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),

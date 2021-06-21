@@ -44,6 +44,10 @@ class _StatusPageState extends State<StatusPage> {
                                 height: 57,
                                 width: 57,
                                 color: Color.fromARGB(255, 196, 196, 196),
+                                child: Image(
+                                  image:
+                                      AssetImage("assets/images/default.jpg"),
+                                ),
                               ),
                             ),
                           ),
@@ -92,21 +96,51 @@ class _StatusPageState extends State<StatusPage> {
                     margin: EdgeInsets.only(bottom: 5),
                   ),
                   //STATUS LIST START
-                  BuildStatusContact(user: "Mapandu", createdAt: "today 10:00"),
                   BuildStatusContact(
-                      user: "Dulsimad", createdAt: "yesterday 10:00"),
+                    user: "Mapandu",
+                    createdAt: "today 10:00",
+                    urlStatusThumb: "togepi.jpg",
+                  ),
                   BuildStatusContact(
-                      user: "Zsuska", createdAt: "tomorrow 10:00"),
+                      user: "Dulsimad",
+                      createdAt: "yesterday 10:00",
+                      urlStatusThumb: "olaf.jpg"),
                   BuildStatusContact(
-                      user: "Anonim", createdAt: "last week 10:00"),
-                  BuildStatusContact(user: "She :)", createdAt: "today 10:00"),
+                      user: "Zsuska",
+                      createdAt: "tomorrow 10:00",
+                      urlStatusThumb: "tumblr.jpg"),
                   BuildStatusContact(
-                      user: "User 1", createdAt: " tonight 10:00"),
-                  BuildStatusContact(user: "User 1", createdAt: "today 10:00"),
-                  BuildStatusContact(user: "User 2", createdAt: "today 10:00"),
-                  BuildStatusContact(user: "User 3", createdAt: "today 10:00"),
-                  BuildStatusContact(user: "User 14", createdAt: "today 10:00"),
-                  BuildStatusContact(user: "User 5", createdAt: "today 10:00"),
+                      user: "Anonim",
+                      createdAt: "last week 10:00",
+                      urlStatusThumb: "eye.jpg"),
+                  BuildStatusContact(
+                      user: "She :)",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "psyduck.jpg"),
+                  BuildStatusContact(
+                      user: "User 1",
+                      createdAt: " tonight 10:00",
+                      urlStatusThumb: "dora.png"),
+                  BuildStatusContact(
+                      user: "User 1",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "kimi no nawa 3.jpg"),
+                  BuildStatusContact(
+                      user: "User 2",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "togepi.jpg"),
+                  BuildStatusContact(
+                      user: "User 3",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "psyduck.jpg"),
+                  BuildStatusContact(
+                      user: "User 14",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "togepi.jpg"),
+                  BuildStatusContact(
+                      user: "User 5",
+                      createdAt: "today 10:00",
+                      urlStatusThumb: "psyduck.jpg"),
                 ],
               ),
             ],
@@ -141,10 +175,12 @@ class BuildStatusContact extends StatelessWidget {
     Key? key,
     required this.user,
     required this.createdAt,
+    required this.urlStatusThumb,
   }) : super(key: key);
 
   final String user;
   final String createdAt;
+  final String urlStatusThumb;
 
   @override
   Widget build(BuildContext context) {
@@ -170,6 +206,10 @@ class BuildStatusContact extends StatelessWidget {
                   height: 57,
                   width: 57,
                   color: Color.fromARGB(255, 196, 196, 196),
+                  child: Image(
+                    image: AssetImage("assets/images/" + urlStatusThumb),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
